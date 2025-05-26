@@ -1,0 +1,21 @@
+{
+  "name": "fitforms",
+  "version": "1.0.0",
+  "description": "Modern Fitness ve Beslenme Takip Uygulaması",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --debug"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chart.js": "^4.4.1",
+    "csv-writer": "^1.6.0",
+    "electron": "^28.1.0",
+    "electron-store": "^8.1.0"
+  },
+  "devDependencies": {
+    "electron-builder": "^24.9.1"
+  }
+}

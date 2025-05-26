@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PromFit - Fitness & Beslenme Takip</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Özel Pencere Kontrolleri -->
+        <div class="titlebar">
+            <div class="titlebar-drag">PromFit</div>
+            <div class="window-controls">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="minimize-btn"><i class="fas fa-minus"></i></button>
+                <button class="maximize-btn"><i class="fas fa-square"></i></button>
+                <button class="close-btn"><i class="fas fa-times"></i></button>
+            </div>
+        </div>
+
+        <!-- Ana İçerik -->
+        <div class="main-content">
+            <!-- Sol Navbar -->
+            <nav class="sidebar">
+                <button class="sidebar-toggle">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="logo">
+                    <i class="fas fa-dumbbell"></i>
+                    <span>PromFit</span>
+                </div>
+                <ul class="nav-links">
+                    <li class="active">
+                        <a href="#dashboard">
+                            <i class="fas fa-home"></i>
+                            <span>Ana Sayfa</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#workout">
+                            <i class="fas fa-running"></i>
+                            <span>Antrenman</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#nutrition">
+                            <i class="fas fa-apple-alt"></i>
+                            <span>Beslenme</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#stats">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Öneriler</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#profile">
+                            <i class="fas fa-user"></i>
+                            <span>Kişisel Bilgiler</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#about">
+                            <i class="fas fa-info-circle"></i>
+                            <span>Hakkında</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Sağ İçerik Alanı -->
+            <div class="content-area">
+                <!-- Dashboard -->
+                <div class="dashboard active" id="dashboard">
+                    <div class="welcome-section">
+                        <div class="user-profile">
+                            <img src="default-avatar.png" alt="Profil Fotoğrafı" id="profile-photo">
+                            <div class="user-info">
+                                <h2 id="user-name">Hoş Geldiniz!</h2>
+                                <p>Fitness ve beslenme hedeflerinize ulaşmak için doğru yerdesiniz.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <i class="fas fa-fire"></i>
+                            <h3>Günlük Kalori İhtiyacı</h3>
+                            <p id="daily-calories">-- kcal</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-dumbbell"></i>
+                            <h3>Haftalık Antrenman</h3>
+                            <p id="weekly-workouts">0 / 5 gün</p>
+                            <p id="weekly-calories">0 kcal</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-calendar-day"></i>
+                            <h3>Günlük Antrenman</h3>
+                            <p id="daily-workouts">0 antrenman</p>
+                            <p id="daily-calories-burned">0 kcal</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-weight"></i>
+                            <h3>Vücut Kitle İndeksi</h3>
+                            <p id="bmi-value">--</p>
+                            <p id="bmi-category" class="bmi-category">--</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-bullseye"></i>
+                            <h3>İdeal Kilo Aralığı</h3>
+                            <p id="ideal-weight">-- kg</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-flag-checkered"></i>
+                            <h3>Hedef Kilo</h3>
+                            <p id="target-weight">-- kg</p>
+                        </div>
+                    </div>
+
+                    <div class="quick-actions">
+                        <h2>Hızlı Erişim</h2>
+                        <div class="action-buttons">
+                            <button class="action-btn">
+                                <i class="fas fa-plus"></i>
+                                Yeni Antrenman
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-utensils"></i>
+                                Öğün Ekle
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-chart-bar"></i>
+                                İlerleme Raporu
+                            </button>
+                        </div>
+                    </div>
+                    <div class="page-footer">
+                        <div class="footer-content">
+                            <i class="fas fa-code"></i>
+                            <p>PromFit v1.0.0 | &copy; 2021-2025 <a href="https://promsoftware.com.tr" target="_blank">PromSoftware</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Beslenme Sayfası -->
+                <div class="nutrition-page" id="nutrition">
+                    <div class="nutrition-container">
+                        <div class="page-header">
+                            <h2>Beslenme Takibi</h2>
+                            <p class="page-description">Günlük beslenme alışkanlıklarınızı takip edin ve sağlıklı beslenme hedeflerinize ulaşın.</p>
+                        </div>
+
+                        <!-- Günlük Özet -->
+                        <div class="daily-summary">
+                            <div class="summary-card">
+                                <div class="summary-header">
+                                    <i class="fas fa-fire"></i>
+                                    <h3>Günlük Kalori Özeti</h3>
+                                </div>
+                                <div class="summary-content">
+                                    <div class="calorie-info">
+                                        <div class="calorie-item">
+                                            <span class="label">Hedef</span>
+                                            <span class="value" id="calorie-target">-- kcal</span>
+                                        </div>
+                                        <div class="calorie-item">
+                                            <span class="label">Alınan</span>
+                                            <span class="value" id="calorie-consumed">0 kcal</span>
+                                        </div>
+                                        <div class="calorie-item">
+                                            <span class="label">Kalan</span>
+                                            <span class="value" id="calorie-remaining">-- kcal</span>
+                                        </div>
+                                    </div>
+                                    <div class="calorie-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" id="calorie-progress"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="summary-card">
+                                <div class="summary-header">
+                                    <i class="fas fa-chart-pie"></i>
+                                    <h3>Makro Besinler</h3>
+                                </div>
+                                <div class="summary-content">
+                                    <div class="macro-info">
+                                        <div class="macro-item">
+                                            <span class="label">Protein</span>
+                                            <span class="value" id="protein-value">0g</span>
+                                            <div class="progress-bar">
+                                                <div class="progress-fill protein" id="protein-progress"></div>
+                                            </div>
+                                        </div>
+                                        <div class="macro-item">
+                                            <span class="label">Karbonhidrat</span>
+                                            <span class="value" id="carbs-value">0g</span>
+                                            <div class="progress-bar">
+                                                <div class="progress-fill carbs" id="carbs-progress"></div>
+                                            </div>
+                                        </div>
+                                        <div class="macro-item">
+                                            <span class="label">Yağ</span>
+                                            <span class="value" id="fat-value">0g</span>
+                                            <div class="progress-bar">
+                                                <div class="progress-fill fat" id="fat-progress"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Öğün Ekleme -->
+                        <div class="meal-section">
+                            <div class="section-header">
+                                <h3>Öğün Ekle</h3>
+                                <button class="add-meal-btn" id="addMealBtn">
+                                    <i class="fas fa-plus"></i>
+                                    Yeni Öğün
+                                </button>
+                            </div>
+
+                            <div class="meal-form" id="mealForm">
+                                <div class="form-group">
+                                    <label for="mealType">Öğün Türü</label>
+                                    <select id="mealType" required>
+                                        <option value="">Seçiniz</option>
+                                        <option value="breakfast">Kahvaltı</option>
+                                        <option value="lunch">Öğle Yemeği</option>
+                                        <option value="dinner">Akşam Yemeği</option>
+                                        <option value="snack">Ara Öğün</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="foodName">Yiyecek Adı</label>
+                                    <input type="text" id="foodName" placeholder="Örn: Tavuk Göğsü" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="portion">Porsiyon (gram)</label>
+                                    <input type="number" id="portion" min="1" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="calories">Kalori</label>
+                                    <input type="number" id="calories" min="0" required>
+                                </div>
+
+                                <div class="macro-inputs">
+                                    <div class="form-group">
+                                        <label for="protein">Protein (g)</label>
+                                        <input type="number" id="protein" min="0" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="carbs">Karbonhidrat (g)</label>
+                                        <input type="number" id="carbs" min="0" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="fat">Yağ (g)</label>
+                                        <input type="number" id="fat" min="0" required>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="save-meal-btn">
+                                    <i class="fas fa-save"></i>
+                                    Kaydet
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Günlük Öğünler -->
+                        <div class="daily-meals">
+                            <h3>Günlük Öğünler</h3>
+                            <div class="meals-list" id="mealsList">
+                                <!-- Öğünler JavaScript ile eklenecek -->
+                            </div>
+                        </div>
+
+                        <!-- Besin Kütüphanesi -->
+                        <div class="food-library">
+                            <h3>Besin Kütüphanesi</h3>
+                            <div class="search-bar">
+                                <i class="fas fa-search"></i>
+                                <input type="text" placeholder="Besin ara..." id="foodSearch">
+                            </div>
+                            <div class="foods-grid" id="foodsGrid">
+                                <!-- Besin kartları JavaScript ile eklenecek -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page-footer">
+                        <div class="footer-content">
+                            <i class="fas fa-code"></i>
+                            <p>PromFit v1.0.0 | &copy; 2021-2025 <a href="https://promsoftware.com.tr" target="_blank">PromSoftware</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Antrenman Sayfası -->
+                <div class="workout-page" id="workout">
+                    <div class="workout-container">
+                        <div class="workout-header hidden">
+                            <h2>Antrenman Programı</h2>
+                            <button class="create-workout-btn">
+                                <i class="fas fa-plus"></i>
+                                Yeni Antrenman Oluştur
+                            </button>
+                        </div>
+
+                        <!-- Aktif Antrenman -->
+                        <div class="active-workout-section hidden">
+                            <h3>Aktif Antrenman</h3>
+                            <div class="active-workout-card">
+                                <div class="workout-timer">
+                                    <i class="fas fa-clock"></i>
+                                    <span id="workout-time">00:00:00</span>
+                                </div>
+                                <div class="workout-info">
+                                    <h4 id="current-workout-name">Henüz aktif antrenman yok</h4>
+                                    <p id="workout-progress">0/0 egzersiz tamamlandı</p>
+                                </div>
+                                <div class="workout-actions hidden">
+                                    <button class="start-workout-btn" id="startWorkoutBtn">
+                                        <i class="fas fa-play"></i>
+                                        Başlat
+                                    </button>
+                                    <button class="pause-workout-btn" id="pauseWorkoutBtn" disabled>
+                                        <i class="fas fa-pause"></i>
+                                        Duraklat
+                                    </button>
+                                    <button class="end-workout-btn" id="endWorkoutBtn" disabled>
+                                        <i class="fas fa-stop"></i>
+                                        Bitir
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Antrenman Programları -->
+                        <div class="workout-programs">
+                            <h3>Antrenman Programları</h3>
+                            <div class="program-filters">
+                                <button class="filter-btn active" data-filter="all">Tümü</button>
+                                <button class="filter-btn" data-filter="strength">Kuvvet</button>
+                                <button class="filter-btn" data-filter="cardio">Kardiyo</button>
+                                <button class="filter-btn" data-filter="flexibility">Esneklik</button>
+                            </div>
+                            <div class="programs-grid" id="programsGrid">
+                                <!-- Program kartları JavaScript ile eklenecek -->
+                            </div>
+                        </div>
+
+                        <!-- Egzersiz Kütüphanesi -->
+                        <div class="exercise-library">
+                            <h3>Egzersiz Kütüphanesi</h3>
+                            <div class="search-bar">
+                                <i class="fas fa-search"></i>
+                                <input type="text" placeholder="Egzersiz ara..." id="exerciseSearch">
+                            </div>
+                            <div class="exercises-grid" id="exercisesGrid">
+                                <!-- Egzersiz kartları JavaScript ile eklenecek -->
+                            </div>
+                        </div>
+
+                        <!-- Egzersiz Takip -->
+                        <div class="exercise-tracking">
+                            <h3>Egzersiz Takibi</h3>
+                            <div class="tracking-form">
+                                <div class="selected-exercise-info">
+                                    <h4>Seçilen Egzersiz</h4>
+                                    <p id="selectedExerciseName">Henüz egzersiz seçilmedi</p>
+                                    <p id="selectedExerciseCalories">0 kcal/saat</p>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exerciseDuration">Süre (dakika)</label>
+                                    <input type="number" id="exerciseDuration" min="1" max="180" required>
+                                </div>
+                                <div class="calorie-result">
+                                    <h4>Yakılan Kalori</h4>
+                                    <p id="caloriesBurned">0 kcal</p>
+                                </div>
+                                <button class="save-exercise-btn" id="saveExerciseBtn" disabled>
+                                    <i class="fas fa-save"></i>
+                                    Kaydet
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- İstatistikler -->
+                        <div class="workout-stats">
+                            <h3>Antrenman İstatistikleri</h3>
+                            <div class="stats-grid">
+                                <div class="stat-card">
+                                    <i class="fas fa-calendar-check"></i>
+                                    <h4>Bu Hafta</h4>
+                                    <p id="weekly-workouts-count">0 antrenman</p>
+                                    <p id="weekly-workouts-days">0 / 5 gün</p>
+                                </div>
+                                <div class="stat-card">
+                                    <i class="fas fa-fire"></i>
+                                    <h4>Toplam Kalori</h4>
+                                    <p id="total-calories">0 kcal</p>
+                                    <p id="weekly-calories">0 kcal bu hafta</p>
+                                </div>
+                                <div class="stat-card">
+                                    <i class="fas fa-clock"></i>
+                                    <h4>Toplam Süre</h4>
+                                    <p id="total-time">0 saat</p>
+                                    <p id="weekly-time">0 saat bu hafta</p>
+                                </div>
+                            </div>
+                            <div class="progress-chart">
+                                <canvas id="workoutProgressChart"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Son Antrenmanlar -->
+                        <div class="workout-history">
+                            <h3>Son Antrenmanlar</h3>
+                            <div class="workout-list" id="workoutList">
+                                <!-- Antrenman listesi JavaScript ile doldurulacak -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page-footer">
+                        <div class="footer-content">
+                            <i class="fas fa-code"></i>
+                            <p>PromFit v1.0.0 | &copy; 2021-2025 <a href="https://promsoftware.com.tr" target="_blank">PromSoftware</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kişisel Bilgiler Sayfası -->
+                <div class="profile-page" id="profile">
+                    <div class="profile-container">
+                        <h2>Kişisel Bilgiler</h2>
+                        <form id="profile-form" class="profile-form">
+                            <div class="profile-photo-section">
+                                <img src="default-avatar.png" alt="Profil Fotoğrafı" id="profile-photo-large">
+                                <button type="button" class="change-photo-btn">
+                                    <i class="fas fa-camera"></i>
+                                    Fotoğraf Değiştir
+                                </button>
+                                <input type="file" id="photo-input" accept="image/*" style="display: none;">
+                            </div>
+
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="firstName">İsim</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Soyisim</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="gender">Cinsiyet</label>
+                                    <select id="gender" name="gender" required>
+                                        <option value="">Seçiniz</option>
+                                        <option value="male">Erkek</option>
+                                        <option value="female">Kadın</option>
+                                        <option value="other">Belirtmek İstemiyorum</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="age">Yaş</label>
+                                    <input type="number" id="age" name="age" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="height">Boy (cm)</label>
+                                    <input type="number" id="height" name="height" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="weight">Kilo (kg)</label>
+                                    <input type="number" id="weight" name="weight" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="targetWeight">Hedef Kilo (kg)</label>
+                                    <input type="number" id="targetWeight" name="targetWeight" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Telefon</label>
+                                    <input type="tel" id="phone" name="phone" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">E-posta</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="save-btn">
+                                    <i class="fas fa-save"></i>
+                                    Kaydet
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="page-footer">
+                        <div class="footer-content">
+                            <i class="fas fa-code"></i>
+                            <p>PromFit v1.0.0 | &copy; 2021-2025 <a href="https://promsoftware.com.tr" target="_blank">PromSoftware</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hakkında Sayfası -->
+                <div class="about-page" id="about">
+                    <div class="about-container">
+                        <h2>PromFit Hakkında</h2>
+                        
+                        <div class="about-section">
+                            <h3>Uygulama Bilgileri</h3>
+                            <p><strong>Sürüm:</strong> 1.0.0</p>
+                            <p><strong>Geliştirici:</strong> PromSoftware</p>
+                            <p><strong>Web Sitesi:</strong> <a href="https://promsoftware.com.tr" target="_blank">promsoftware.com.tr</a></p>
+                            <p><strong>Son Güncelleme:</strong> 2021-2025</p>
+                        </div>
+
+                        <div class="about-section">
+                            <h3>Uygulama Kullanımı</h3>
+                            <div class="usage-steps">
+                                <div class="step">
+                                    <i class="fas fa-user-plus"></i>
+                                    <h4>1. Profil Oluşturma</h4>
+                                    <p>Kişisel bilgilerinizi ve hedeflerinizi girin.</p>
+                                </div>
+                                <div class="step">
+                                    <i class="fas fa-dumbbell"></i>
+                                    <h4>2. Antrenman Planı</h4>
+                                    <p>Haftalık antrenman programınızı takip edin.</p>
+                                </div>
+                                <div class="step">
+                                    <i class="fas fa-utensils"></i>
+                                    <h4>3. Beslenme Takibi</h4>
+                                    <p>Günlük öğünlerinizi ve kalori alımınızı kaydedin.</p>
+                                </div>
+                                <div class="step">
+                                    <i class="fas fa-chart-line"></i>
+                                    <h4>4. İlerleme Analizi</h4>
+                                    <p>Hedeflerinize ulaşma sürecinizi takip edin.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="about-section">
+                            <h3>İletişim</h3>
+                            <p>Destek ve geri bildirimleriniz için:</p>
+                            <p><i class="fas fa-envelope"></i> <a href="mailto:destek@promsoftware.com.tr">destek@promsoftware.com.tr</a></p>
+                        </div>
+                    </div>
+                    <div class="page-footer">
+                        <div class="footer-content">
+                            <i class="fas fa-code"></i>
+                            <p>PromFit v1.0.0 | &copy; 2021-2025 <a href="https://promsoftware.com.tr" target="_blank">PromSoftware</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- İstatistikler Sayfası -->
+                <div class="stats-page" id="stats">
+                    <div class="stats-container">
+                        <div class="page-header">
+                            <h2>Kişisel Öneriler</h2>
+                            <p class="page-description">Sağlık ve fitness hedeflerinize ulaşmanız için özelleştirilmiş öneriler</p>
+                        </div>
+
+                        <!-- BMI Durumu -->
+                        <div class="bmi-status-section">
+                            <div class="section-header">
+                                <h3>Vücut Kitle İndeksi Durumu</h3>
+                                <div class="section-actions">
+                                    <button class="info-btn" data-tooltip="BMI, vücut ağırlığınızın boy uzunluğunuzun karesine bölünmesiyle elde edilir.">
+                                        <i class="fas fa-info-circle"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="bmi-status-card">
+                                <div class="bmi-value">
+                                    <div class="bmi-number">
+                                        <span id="bmi-status-value">--</span>
+                                        <span class="bmi-unit">kg/m²</span>
+                                    </div>
+                                    <span id="bmi-status-category" class="bmi-category">--</span>
+                                </div>
+                                <div class="bmi-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" id="bmi-progress-fill"></div>
+                                    </div>
+                                    <div class="progress-labels">
+                                        <span>Zayıf</span>
+                                        <span>Normal</span>
+                                        <span>Fazla Kilolu</span>
+                                        <span>Obez</span>
+                                    </div>
+                                </div>
+                                <div class="bmi-description" id="bmi-description">
+                                    Henüz BMI verisi bulunmuyor.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Öneriler Grid -->
+                        <div class="recommendations-grid">
+                            <!-- Beslenme Önerileri -->
+                            <div class="recommendations-card nutrition">
+                                <div class="card-header">
+                                    <i class="fas fa-utensils"></i>
+                                    <h3>Beslenme Önerileri</h3>
+                                </div>
+                                <div class="recommendations-content" id="nutrition-recommendations">
+                                    <p>Kişisel beslenme önerileri için lütfen profil bilgilerinizi güncelleyin.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <button class="action-btn" onclick="showDetailedNutrition()">
+                                        <i class="fas fa-book"></i>
+                                        Detaylı Beslenme Planı
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Egzersiz Önerileri -->
+                            <div class="recommendations-card exercise">
+                                <div class="card-header">
+                                    <i class="fas fa-dumbbell"></i>
+                                    <h3>Egzersiz Önerileri</h3>
+                                </div>
+                                <div class="recommendations-content" id="exercise-recommendations">
+                                    <p>Kişisel egzersiz önerileri için lütfen profil bilgilerinizi güncelleyin.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <button class="action-btn" onclick="showDetailedExercise()">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        Haftalık Program
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Genel Sağlık Önerileri -->
+                            <div class="recommendations-card health">
+                                <div class="card-header">
+                                    <i class="fas fa-heartbeat"></i>
+                                    <h3>Genel Sağlık Önerileri</h3>
+                                </div>
+                                <div class="recommendations-content" id="health-recommendations">
+                                    <p>Genel sağlık önerileri için lütfen profil bilgilerinizi güncelleyin.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <button class="action-btn" onclick="showHealthTips()">
+                                        <i class="fas fa-lightbulb"></i>
+                                        Sağlık İpuçları
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Hedef Takibi -->
+                            <div class="recommendations-card goals">
+                                <div class="card-header">
+                                    <i class="fas fa-bullseye"></i>
+                                    <h3>Hedef Takibi</h3>
+                                </div>
+                                <div class="recommendations-content" id="goals-recommendations">
+                                    <div class="goal-progress">
+                                        <div class="goal-item">
+                                            <div class="goal-info">
+                                                <span class="goal-label">Hedef Kilo</span>
+                                                <span class="goal-value" id="target-weight-value">-- kg</span>
+                                            </div>
+                                            <div class="progress-bar">
+                                                <div class="progress-fill" id="weight-progress"></div>
+                                            </div>
+                                        </div>
+                                        <div class="goal-item">
+                                            <div class="goal-info">
+                                                <span class="goal-label">Haftalık Antrenman</span>
+                                                <span class="goal-value" id="workout-progress">0/5 gün</span>
+                                            </div>
+                                            <div class="progress-bar">
+                                                <div class="progress-fill" id="workout-progress-fill"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <button class="action-btn" onclick="showGoalDetails()">
+                                        <i class="fas fa-chart-line"></i>
+                                        Detaylı İlerleme
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Motivasyon Kartı -->
+                        <div class="motivation-card">
+                            <div class="quote-container">
+                                <i class="fas fa-quote-left"></i>
+                                <p id="motivation-quote">Sağlıklı bir yaşam için ilk adımı atın.</p>
+                                <i class="fas fa-quote-right"></i>
+                            </div>
+                            <div class="quote-author" id="quote-author">- PromFit</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">
+                        <div class="footer-content">
+                            <i class="fas fa-code"></i>
+                            <p>PromFit v1.0.0 | &copy; 2021-2025 <a href="https://promsoftware.com.tr" target="_blank">PromSoftware</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <i class="fas fa-code"></i>
+            <p>PromFit v1.0.0 | &copy; 2021-2025 <a href="https://promsoftware.com.tr" target="_blank">PromSoftware</a></p>
+        </div>
+    </footer>
+
+    <!-- Bildirim -->
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i>
+        <div class="notification-content">
+            <div class="notification-title">Başarılı!</div>
+            <div class="notification-message">Bilgileriniz başarıyla kaydedildi.</div>
+        </div>
+    </div>
+
+    <!-- Kapatma Onay Modalı -->
+    <div class="modal" id="closeConfirmModal">
+        <div class="modal-content">
+            <h2 class="modal-title">Uygulamayı Kapat</h2>
+            <p>Uygulamayı kapatmak istediğinizden emin misiniz?</p>
+            <div class="modal-buttons">
+                <button class="modal-btn cancel" id="cancelClose">Hayır</button>
+                <button class="modal-btn confirm" id="confirmClose">Evet</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tüm elementleri seçilemez yap
+            document.querySelectorAll('*').forEach(element => {
+                element.style.userSelect = 'none';
+                element.style.webkitUserSelect = 'none';
+                element.style.mozUserSelect = 'none';
+                element.style.msUserSelect = 'none';
+            });
+        });
+    </script>
+</body>
+</html> 
