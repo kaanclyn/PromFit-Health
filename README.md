@@ -1,3 +1,40 @@
+## Görsel Açılma Efekti (README Örneği)
+
+Aşağıdan yukarı ağır ağır çıkan bir resim + minimal el işareti örneği:
+
+```html
+<div class="wcu-thumb">
+  <div class="main-thumb img-custom-anim-right wow fadeInUp" data-wow-delay=".4s">
+    <img id="thumbImg" src="../assets/images/wcu/wcuThumb2_1.png" 
+         alt="thumb" 
+         style="cursor:pointer; transform: translateY(-50px); opacity:0; transition: all 1s ease-in-out;">
+  </div>
+</div>
+
+<style>
+  /* Aşağıdan ağır ağır çıkma efekti */
+  .fadeInUp.show img {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  /* Minimal el işareti (daha zarif) */
+  #thumbImg {
+    cursor: url('https://cdn.jsdelivr.net/gh/astrit/css-cursor/32x32/link.cur'), pointer;
+  }
+</style>
+
+<script>
+  // Sayfa açıldığında animasyonu tetikleme
+  document.addEventListener("DOMContentLoaded", function() {
+    const img = document.querySelector(".fadeInUp img");
+    setTimeout(() => {
+      img.parentElement.classList.add("show");
+    }, 500); // yarım saniye gecikmeli başlar
+  });
+</script>
+
+
 PromFit - Fitness & Nutrition Tracking Application
 
 PromFit is a modern desktop application that helps users track their fitness and nutrition goals.
