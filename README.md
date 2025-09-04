@@ -1,468 +1,276 @@
-## Görsel Açılma Efekti (README Örneği)
-
-Aşağıdan yukarı ağır ağır çıkan bir resim + minimal el işareti örneği:
-
-```html
-<div class="wcu-thumb">
-  <div class="main-thumb img-custom-anim-right wow fadeInUp" data-wow-delay=".4s">
-    <img id="thumbImg" src="../assets/images/wcu/wcuThumb2_1.png" 
-         alt="thumb" 
-         style="cursor:pointer; transform: translateY(-50px); opacity:0; transition: all 1s ease-in-out;">
-  </div>
-</div>
-
-<style>
-  /* Aşağıdan ağır ağır çıkma efekti */
-  .fadeInUp.show img {
-    transform: translateY(0);
-    opacity: 1;
-  }
-
-  /* Minimal el işareti (daha zarif) */
-  #thumbImg {
-    cursor: url('https://cdn.jsdelivr.net/gh/astrit/css-cursor/32x32/link.cur'), pointer;
-  }
-</style>
-
-<script>
-  // Sayfa açıldığında animasyonu tetikleme
-  document.addEventListener("DOMContentLoaded", function() {
-    const img = document.querySelector(".fadeInUp img");
-    setTimeout(() => {
-      img.parentElement.classList.add("show");
-    }, 500); // yarım saniye gecikmeli başlar
-  });
-</script>
-
-
-PromFit - Fitness & Nutrition Tracking Application
-
-PromFit is a modern desktop application that helps users track their fitness and nutrition goals.
-
-The app is specifically designed to help users monitor their personal progress and achieve their targets.
-
-Features
-
-Personalized profile management
-
-Detailed workout tracking
-
-Meal planning and nutrition tracking
-
-Statistics and progress analysis
-
-BMI calculation and tracking
-
-Goal setting and monitoring
-
-Modern and user-friendly interface
-
-Personal development tracking and reporting
-
-Technologies
-
-Electron (Desktop Application)
-
-HTML5 & CSS3
-
-JavaScript
-
-Node.js
-
-CSV (Data Storage)
-
-Installation
-
-Install Node.js (https://nodejs.org
-)
-
-Clone the project
-
-Open the terminal in the project directory
-
-Install dependencies:
-npm install
-
-Start the application:
-npm start
-
-Development
-
-The application is developed using the Electron framework.
-
-Main application files:
-
-index.html: Main application interface
-
-intro.html: Intro page
-
-styles.css: Main stylesheet
-
-intro.css: Intro page styles
-
-script.js: JavaScript functions
-
-main.js: Electron main process file
-
-Technical Details
-
-Electron Main Process (main.js)
-
-Window management and customization
-
-File system operations
-
-Data storage and management
-
-IPC communication
-
-Data Management
-
-Profile data stored in CSV format
-
-Workout data stored in JSON format
-
-Local file system integration
-
-Automatic backup system
-
-Features
-
-Custom window frame
-
-Transparent background support
-
-Full-screen mode
-
-Developer tools integration
-
-Folder Structure
-
-/profiles: User profiles
-
-/profiles_photos: Profile photos
-
-/workouts: Workout data
-
-/programs: Training programs
-
-IPC Events
-
-Window control events
-
-Data save/load
-
-Profile management
-
-Workout tracking
-
-Folder Layout
+PromFit - Fitness & Beslenme Takip Uygulaması
+===========================================
+
+- PromFit, kullanıcıların fitness ve beslenme hedeflerini takip etmelerine yardımcı olan modern bir masaüstü uygulamasıdır. 
+- Uygulama, kullanıcıların kişisel gelişimlerini takip etmeleri ve hedeflerine ulaşmaları için özel olarak tasarlanmıştır.
+
+Özellikler
+----------
+- Kişiselleştirilmiş profil yönetimi
+- Detaylı antrenman takibi
+- Beslenme programı oluşturma ve takip
+- İstatistik ve ilerleme analizi
+- BMI hesaplama ve takip
+- Hedef belirleme ve takip
+- Modern ve kullanıcı dostu arayüz
+- Kişisel gelişim takibi ve raporlama
+
+Teknolojiler
+-----------
+- Electron (Masaüstü Uygulaması)
+- HTML5 & CSS3
+- JavaScript
+- Node.js
+- CSV (Veri Depolama)
+
+Kurulum
+-------
+1. Node.js'i yükleyin (https://nodejs.org)
+2. Projeyi klonlayın
+3. Proje dizininde terminal açın
+4. Bağımlılıkları yükleyin:
+   npm install
+5. Uygulamayı başlatın:
+   npm start
+
+Geliştirme
+---------
+- Uygulama Electron framework'ü kullanılarak geliştirilmiştir
+- Ana uygulama dosyaları:
+  - index.html: Ana uygulama arayüzü
+  - intro.html: Giriş sayfası
+  - styles.css: Ana stil dosyası
+  - intro.css: Giriş sayfası stilleri
+  - script.js: JavaScript fonksiyonları
+  - main.js: Electron ana süreç dosyası
+
+Teknik Detaylar
+--------------
+1. Electron Ana Süreç (main.js)
+   - Pencere yönetimi ve özelleştirme
+   - Dosya sistemi işlemleri
+   - Veri depolama ve yönetimi
+   - IPC iletişimi
+
+2. Veri Yönetimi
+   - CSV formatında profil verileri
+   - JSON formatında antrenman verileri
+   - Yerel dosya sistemi entegrasyonu
+   - Otomatik yedekleme sistemi
+
+3. Özellikler
+   - Özelleştirilmiş pencere çerçevesi
+   - Şeffaf arka plan desteği
+   - Tam ekran modu
+   - Geliştirici araçları entegrasyonu
+
+4. Klasör Yapısı
+   - /profiles: Kullanıcı profilleri
+   - /profiles_photos: Profil fotoğrafları
+   - /workouts: Antrenman verileri
+   - /programs: Antrenman programları
+
+5. IPC Olayları
+   - Pencere kontrol olayları
+   - Veri kaydetme/yükleme
+   - Profil yönetimi
+   - Antrenman takibi
+
+Klasör Yapısı
+------------
 /
-├── index.html          # Main application page
-├── intro.html          # Intro page
-├── styles.css          # Main stylesheet
-├── intro.css           # Intro page styles
-├── script.js           # JavaScript functions
-├── main.js             # Electron main process
-├── package.json        # Project dependencies
-└── README.txt          # This file
-
-Detailed Features
-
-Personal Profile
-
-User information
-
-Body measurements
-
-Goal setting
-
-BMI tracking
-
-Personal development targets
-
-Workout Tracking
-
-Create custom programs
-
-Exercise library
-
-Progress monitoring
-
-Calorie burn calculation
-
-Performance improvement analysis
-
-Nutrition Tracking
-
-Meal planning
-
-Calorie tracking
-
-Macronutrient calculation
-
-Food library
-
-Nutrition habits analysis
-
-Statistics
-
-Progress charts
-
-Goal tracking
-
-Performance analysis
-
-Recommendations
-
-Development reports
-
-Version Info
-
-Version: 3.3.6 / 1.0.0
-
-Last Update: 26/05/2025
-
-Developer: PromSoftware
-
-Contact
-
-Web: https://promsoftware.com.tr
-
-Email: destek@promsoftware.com.tr
-
-License
-
-© 2021-2025 PromSoftware. All rights reserved.
-
-Developer Rights and Usage
-
-This application is provided as open source for software developers and programmers. The following rights and permissions are granted:
-
-Development & Customization
-
-Modify and improve source code
-
-Add new features
-
-Customize existing features
-
-Adapt for different platforms
-
-Commercial Use
-
-Use for commercial purposes
-
-Redistribute
-
-Sub-license
-
-Integrate into commercial projects
-
-Developer Requirements
-
-Retain PromSoftware copyright notice
-
-Preserve original license terms
-
-Document modifications
-
-Disclaimer
-
-The application is provided “as is”
-
-PromSoftware is not responsible for consequences of its use
-
-Developers use at their own risk
-
-Notes
-
-Developed using the Electron framework
-
-Data stored locally in CSV format
-
-Modern and user-friendly interface design
-
-Responsive design support
-
-Dark/Light theme support
-
-Detailed analysis tools supporting user progress
-
-Features guiding users to achieve personal goals
-
-Open source and commercial usage support
-
-Data Storage Structure
-
-The application stores user data in the local file system with the following structure:
-
-Main Data Folder: /profiles
-
-User profiles stored in CSV format
-
-Filename format: username_date.csv
-
-Example: kaan_caglayan_2025-05-26T08-29-57-889Z.csv
-
-Profile Photos: /profiles/profiles_photos
-
-User profile photos stored in PNG format
-
-Filename format: username_date.png
-
-Example: kaan_caglayan_2025-05-26T08-29-39-625Z.png
-
-Data Formats
-
-CSV Files:
-
-User information
-
-Body measurements
-
-Goals
-
-Timestamp
-
-PNG Files:
-
-Profile photos
-
-Converted from Base64
-
-Auto-resized
-
-Data Security
-
-Local storage
-
-Automatic backups
-
-Data integrity checks
-
-Secure file handling
-
-Planned Features and Development Roadmap
-
-Multi-Platform Support
-
-Native apps for Windows, macOS, and Linux
-
-Web-based version
-
-Mobile app (iOS/Android)
-
-Cross-platform synchronization
-
-Multi-User System
-
-User accounts and authentication
-
-Role-based access control
-
-Group management and sharing
-
-Social features and interaction
-
-Payment Systems
-
-Subscription model
-
-Premium features
-
-Payment history
-
-Invoice management
-
-Multi-currency support
-
-Auto-renewal
-
-Advanced Data Tracking
-
-Real-time monitoring
-
-Detailed analytics reports
-
-Customizable dashboards
-
-Data visualization
-
-Trend analysis
-
-Predictive models
-
-Database Options
-
-SQLite (Local storage)
-
-PostgreSQL (Relational database)
-
-MongoDB (NoSQL solution)
-
-Redis (Cache and session management)
-
-Firebase (Realtime database)
-
-Licensing System
-
-User-based licensing
-
-Enterprise licenses
-
-Feature-based licensing
-
-Time-limited licenses
-
-License validation and renewal
-
-Offline license activation
-
-Security Enhancements
-
-Two-factor authentication
-
-End-to-end encryption
-
-Secure data backup
-
-GDPR compliance
-
-Data privacy controls
-
-Integrations
-
-Sync with fitness devices
-
-Health app integrations
-
-Calendar systems
-
-Cloud storage services
-
-Social media platforms
-
-Performance Improvements
-
-Cache optimization
-
-Lazy loading
-
-Code splitting
-
-Asset optimization
-
-Load balancing
-
-User Experience
-
-Customizable interface
-
-Theme support
-
-Accessibility features
-
-Multi-language support
-
-Keyboard shortcuts
+├── index.html          # Ana uygulama sayfası
+├── intro.html          # Giriş sayfası
+├── styles.css          # Ana stil dosyası
+├── intro.css           # Giriş sayfası stilleri
+├── script.js           # JavaScript kodları
+├── main.js             # Electron ana süreç
+├── package.json        # Proje bağımlılıkları
+└── README.txt          # Bu dosya
+
+Özellikler Detayı
+----------------
+1. Kişisel Profil
+   - Kullanıcı bilgileri
+   - Vücut ölçüleri
+   - Hedef belirleme
+   - BMI takibi
+   - Kişisel gelişim hedefleri
+
+2. Antrenman Takibi
+   - Özel program oluşturma
+   - Egzersiz kütüphanesi
+   - İlerleme takibi
+   - Kalori yakım hesaplama
+   - Performans gelişimi analizi
+
+3. Beslenme Takibi
+   - Öğün planlama
+   - Kalori takibi
+   - Makro besin hesaplama
+   - Besin kütüphanesi
+   - Beslenme alışkanlıkları analizi
+
+4. İstatistikler
+   - İlerleme grafikleri
+   - Hedef takibi
+   - Performans analizi
+   - Öneriler
+   - Gelişim raporları
+
+Versiyon Bilgisi
+--------------
+- Sürüm: 3.3.6 / 1.0.0
+- Son Güncelleme: 26/05/2025
+- Geliştirici: PromSoftware
+
+İletişim
+-------
+- Web: https://promsoftware.com.tr
+- E-posta: destek@promsoftware.com.tr
+
+Lisans
+------
+© 2021-2025 PromSoftware. Tüm hakları saklıdır.
+
+Geliştirici Hakları ve Kullanım
+------------------------------
+Bu uygulama, yazılım geliştiricileri ve programcılar için açık kaynak olarak sunulmuştur. Aşağıdaki haklar ve izinler verilmiştir:
+
+1. Geliştirme ve Özelleştirme
+   - Kaynak kodunu değiştirme ve geliştirme
+   - Yeni özellikler ekleme
+   - Mevcut özellikleri özelleştirme
+   - Farklı platformlara uyarlama
+
+2. Ticari Kullanım
+   - Ticari amaçlarla kullanma
+   - Yeniden dağıtma
+   - Alt lisanslama
+   - Ticari projelerde entegrasyon
+
+3. Geliştirici Gereksinimleri
+   - PromSoftware'ın telif hakkı bildirimini koruma
+   - Orijinal lisans şartlarını muhafaza etme
+   - Değişiklikleri belgeleme
+
+4. Sorumluluk Reddi
+   - Uygulama "olduğu gibi" sunulmuştur
+   - PromSoftware, uygulamanın kullanımından doğacak sonuçlardan sorumlu değildir
+   - Geliştiriciler kendi riskleri altında kullanır
+
+Notlar
+------
+- Uygulama Electron framework'ü kullanılarak geliştirilmiştir
+- Veriler yerel olarak CSV formatında saklanır
+- Modern ve kullanıcı dostu arayüz tasarımı
+- Responsive tasarım desteği
+- Karanlık/Aydınlık tema desteği
+- Kullanıcı gelişimini destekleyen detaylı analiz araçları
+- Kişisel hedeflere ulaşmada rehberlik eden özellikler
+- Geliştiriciler için açık kaynak ve ticari kullanım desteği
+
+Veri Depolama Yapısı
+-------------------
+Uygulama, kullanıcı verilerini yerel dosya sisteminde aşağıdaki yapıda saklar:
+
+1. Ana Veri Klasörü: /profiles
+   - Kullanıcı profilleri CSV formatında saklanır
+   - Dosya adı formatı: kullanıcıadı_tarih.csv
+   - Örnek: kaan_çağlayan_2025-05-26T08-29-57-889Z.csv
+
+2. Profil Fotoğrafları: /profiles/profiles_photos
+   - Kullanıcı profil fotoğrafları PNG formatında saklanır
+   - Dosya adı formatı: kullanıcıadı_tarih.png
+   - Örnek: kaan_çağlayan_2025-05-26T08-29-39-625Z.png
+
+3. Veri Formatları
+   - CSV Dosyaları:
+     * Kullanıcı bilgileri
+     * Vücut ölçüleri
+     * Hedefler
+     * Tarih damgası
+   
+   - PNG Dosyaları:
+     * Profil fotoğrafları
+     * Base64 formatından dönüştürülmüş
+     * Otomatik boyutlandırma
+
+4. Veri Güvenliği
+   - Yerel depolama
+   - Otomatik yedekleme
+   - Veri bütünlüğü kontrolü
+   - Güvenli dosya işlemleri 
+
+Eklenebilir Özellikler ve Geliştirme Planları
+----------------------------------------
+1. Çoklu Platform Desteği
+   - Windows, macOS ve Linux için native uygulamalar
+   - Web tabanlı versiyon
+   - Mobil uygulama (iOS/Android)
+   - Cross-platform senkronizasyon
+
+2. Çoklu Kullanıcı Sistemi
+   - Kullanıcı hesapları ve yetkilendirme
+   - Rol tabanlı erişim kontrolü
+   - Grup yönetimi ve paylaşım
+   - Sosyal özellikler ve etkileşim
+
+3. Ödeme Sistemleri
+   - Abonelik modeli
+   - Premium özellikler
+   - Ödeme geçmişi
+   - Fatura yönetimi
+   - Çoklu para birimi desteği
+   - Otomatik yenileme
+
+4. Gelişmiş Veri Takibi
+   - Gerçek zamanlı izleme
+   - Detaylı analitik raporlar
+   - Özelleştirilebilir dashboard
+   - Veri görselleştirme
+   - Trend analizi
+   - Tahminleme modelleri
+
+5. Veritabanı Seçenekleri
+   - SQLite (Yerel depolama)
+   - PostgreSQL (İlişkisel veritabanı)
+   - MongoDB (NoSQL çözümü)
+   - Redis (Önbellek ve oturum yönetimi)
+   - Firebase (Gerçek zamanlı veritabanı)
+
+6. Lisanslama Sistemi
+   - Kullanıcı bazlı lisanslama
+   - Kurumsal lisanslar
+   - Özellik bazlı lisanslama
+   - Süre sınırlı lisanslar
+   - Lisans doğrulama ve yenileme
+   - Offline lisans aktivasyonu
+
+7. Güvenlik Geliştirmeleri
+   - İki faktörlü doğrulama
+   - End-to-end şifreleme
+   - Güvenli veri yedekleme
+   - GDPR uyumluluğu
+   - Veri gizliliği kontrolleri
+
+8. Entegrasyonlar
+   - Fitness cihazları ile senkronizasyon
+   - Sağlık uygulamaları entegrasyonu
+   - Takvim sistemleri
+   - Bulut depolama servisleri
+   - Sosyal medya platformları
+
+9. Performans İyileştirmeleri
+   - Önbellek optimizasyonu
+   - Lazy loading
+   - Kod splitting
+   - Asset optimizasyonu
+   - Yük dengeleme
+
+10. Kullanıcı Deneyimi
+    - Kişiselleştirilebilir arayüz
+    - Tema desteği
+    - Erişilebilirlik özellikleri
+    - Çoklu dil desteği
+    - Kısayol tuşları 
