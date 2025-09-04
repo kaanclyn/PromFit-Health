@@ -1,276 +1,278 @@
-PromFit - Fitness & Beslenme Takip Uygulaması
+PromFit - Fitness & Nutrition Tracking App
 ===========================================
 
-- PromFit, kullanıcıların fitness ve beslenme hedeflerini takip etmelerine yardımcı olan modern bir masaüstü uygulamasıdır. 
-- Uygulama, kullanıcıların kişisel gelişimlerini takip etmeleri ve hedeflerine ulaşmaları için özel olarak tasarlanmıştır.
+- PromFit is a modern desktop application that helps users track their fitness and nutrition goals. 
+- The application is specifically designed to help users track their personal development and achieve their goals.
 
-Özellikler
+Features
 ----------
-- Kişiselleştirilmiş profil yönetimi
-- Detaylı antrenman takibi
-- Beslenme programı oluşturma ve takip
-- İstatistik ve ilerleme analizi
-- BMI hesaplama ve takip
-- Hedef belirleme ve takip
-- Modern ve kullanıcı dostu arayüz
-- Kişisel gelişim takibi ve raporlama
+- Personalized profile management
+- Detailed workout tracking
+- Nutrition program creation and tracking
+- Statistics and progress analysis
+- BMI calculation and tracking
+- Goal setting and tracking
+- Modern and user-friendly interface
+- Personal development tracking and reporting
 
-Teknolojiler
+Technologies
 -----------
-- Electron (Masaüstü Uygulaması)
+- Electron (Desktop Application)
 - HTML5 & CSS3
 - JavaScript
 - Node.js
-- CSV (Veri Depolama)
+- CSV (Data Storage)
 
-Kurulum
+Installation
 -------
-1. Node.js'i yükleyin (https://nodejs.org)
-2. Projeyi klonlayın
-3. Proje dizininde terminal açın
-4. Bağımlılıkları yükleyin:
+1. Install Node.js (https://nodejs.org)
+2. Clone the project
+3. Open a terminal in the project directory
+4. Install dependencies:
    npm install
-5. Uygulamayı başlatın:
+5. Start the application:
    npm start
 
-Geliştirme
+Development
 ---------
-- Uygulama Electron framework'ü kullanılarak geliştirilmiştir
-- Ana uygulama dosyaları:
-  - index.html: Ana uygulama arayüzü
-  - intro.html: Giriş sayfası
-  - styles.css: Ana stil dosyası
-  - intro.css: Giriş sayfası stilleri
-  - script.js: JavaScript fonksiyonları
-  - main.js: Electron ana süreç dosyası
+- The application was developed using the Electron framework
+- Main application files:
+  - index.html: Main application interface
+  - intro.html: Introductory page
+  - styles.css: Main style sheet
+  - intro.css: Introductory page styles
+  - script.js: JavaScript functions
+  - main.js: Electron main process file
 
-Teknik Detaylar
+Technical Details
 --------------
-1. Electron Ana Süreç (main.js)
-   - Pencere yönetimi ve özelleştirme
-   - Dosya sistemi işlemleri
-   - Veri depolama ve yönetimi
-   - IPC iletişimi
+1. Electron Main Process (main.js)
+   - Window management and customization
+   - File system operations
+   - Data storage and management
+   - IPC communication
 
-2. Veri Yönetimi
-   - CSV formatında profil verileri
-   - JSON formatında antrenman verileri
-   - Yerel dosya sistemi entegrasyonu
-   - Otomatik yedekleme sistemi
+2. Data Management
+   - Profile data in CSV format
+   - Training data in JSON format
+   - Local file system integration
+   - Automatic backup system
 
-3. Özellikler
-   - Özelleştirilmiş pencere çerçevesi
-   - Şeffaf arka plan desteği
-   - Tam ekran modu
-   - Geliştirici araçları entegrasyonu
+3. Features
+   - Customized window frame
+   - Transparent background support
+   - Full-screen mode
+   - Developer tools integration
 
-4. Klasör Yapısı
-   - /profiles: Kullanıcı profilleri
-   - /profiles_photos: Profil fotoğrafları
-   - /workouts: Antrenman verileri
-   - /programs: Antrenman programları
+4. Folder Structure
+   - /profiles: User profiles
+   - /profiles_photos: Profile photos
+   - /workouts: Training data
+   - /programs: Training programs
 
-5. IPC Olayları
-   - Pencere kontrol olayları
-   - Veri kaydetme/yükleme
-   - Profil yönetimi
-   - Antrenman takibi
+5. IPC Events
+   - Window control events
+   - Data saving/loading
+   - Profile management
+   - Workout tracking
 
-Klasör Yapısı
+Folder Structure
 ------------
 /
-├── index.html          # Ana uygulama sayfası
-├── intro.html          # Giriş sayfası
-├── styles.css          # Ana stil dosyası
-├── intro.css           # Giriş sayfası stilleri
-├── script.js           # JavaScript kodları
-├── main.js             # Electron ana süreç
-├── package.json        # Proje bağımlılıkları
-└── README.txt          # Bu dosya
+├── index.html          # Main application page
+├── intro.html          # Intro page
+├── styles.css          # Main style sheet
+├── intro.css           # Intro page styles
+├── script.js           # JavaScript code
+├── main.js             # Electron main process
+├── package.json        # Project dependencies
+└── README.txt          # This file
 
-Özellikler Detayı
+Feature Details
 ----------------
-1. Kişisel Profil
-   - Kullanıcı bilgileri
-   - Vücut ölçüleri
-   - Hedef belirleme
-   - BMI takibi
-   - Kişisel gelişim hedefleri
+1. Personal Profile
+   - User information
+   - Body measurements
+   - Goal setting
+   - BMI tracking
+   - Personal development goals
 
-2. Antrenman Takibi
-   - Özel program oluşturma
-   - Egzersiz kütüphanesi
-   - İlerleme takibi
-   - Kalori yakım hesaplama
-   - Performans gelişimi analizi
+2. Workout Tracking
+   - Custom program creation
+   - Exercise library
+   - Progress tracking
+   - Calorie burn calculation
+   - Performance improvement analysis
 
-3. Beslenme Takibi
-   - Öğün planlama
-   - Kalori takibi
-   - Makro besin hesaplama
-   - Besin kütüphanesi
-   - Beslenme alışkanlıkları analizi
+3. Nutrition Tracking
+   - Meal planning
+   - Calorie tracking
+   - Macro nutrient calculation
+   - Food library
+   - Nutrition habit analysis
 
-4. İstatistikler
-   - İlerleme grafikleri
-   - Hedef takibi
-   - Performans analizi
-   - Öneriler
-   - Gelişim raporları
+4. Statistics
+   - Progress charts
+   - Goal tracking
+   - Performance analysis
+   - Recommendations
+   - Progress reports
 
-Versiyon Bilgisi
+Version Information
 --------------
-- Sürüm: 3.3.6 / 1.0.0
-- Son Güncelleme: 26/05/2025
-- Geliştirici: PromSoftware
+- Version: 3.3.6 / 1.0.0
+- Last Updated: 05/26/2025
+- Developer: PromSoftware
 
-İletişim
+Contact
 -------
 - Web: https://promsoftware.com.tr
-- E-posta: destek@promsoftware.com.tr
+- Email: destek@promsoftware.com.tr
 
-Lisans
+License
 ------
-© 2021-2025 PromSoftware. Tüm hakları saklıdır.
+© 2021-2025 PromSoftware. All rights reserved.
 
-Geliştirici Hakları ve Kullanım
+Developer Rights and Usage
 ------------------------------
-Bu uygulama, yazılım geliştiricileri ve programcılar için açık kaynak olarak sunulmuştur. Aşağıdaki haklar ve izinler verilmiştir:
+This application is provided as open source for software developers and programmers. The following rights and permissions are granted:
 
-1. Geliştirme ve Özelleştirme
-   - Kaynak kodunu değiştirme ve geliştirme
-   - Yeni özellikler ekleme
-   - Mevcut özellikleri özelleştirme
-   - Farklı platformlara uyarlama
+1. Development and Customization
+   - Modifying and developing the source code
+   - Adding new features
+   - Customizing existing features
+   - Adapting to different platforms
 
-2. Ticari Kullanım
-   - Ticari amaçlarla kullanma
-   - Yeniden dağıtma
-   - Alt lisanslama
-   - Ticari projelerde entegrasyon
+2. Commercial Use
+   - Use for commercial purposes
+   - Redistribution
+   - Sublicensing
+   - Integration into commercial projects
 
-3. Geliştirici Gereksinimleri
-   - PromSoftware'ın telif hakkı bildirimini koruma
-   - Orijinal lisans şartlarını muhafaza etme
-   - Değişiklikleri belgeleme
+3. Developer Requirements
+   - Maintain PromSoftware's copyright notice
+   - Preserve the original license terms
+   - Document modifications
 
-4. Sorumluluk Reddi
-   - Uygulama "olduğu gibi" sunulmuştur
-   - PromSoftware, uygulamanın kullanımından doğacak sonuçlardan sorumlu değildir
-   - Geliştiriciler kendi riskleri altında kullanır
+4. Disclaimer
+   - The application is provided “as is”
+   - PromSoftware is not responsible for the results arising from the use of the application
+   - Developers use it at their own risk
 
-Notlar
+Notes
 ------
-- Uygulama Electron framework'ü kullanılarak geliştirilmiştir
-- Veriler yerel olarak CSV formatında saklanır
-- Modern ve kullanıcı dostu arayüz tasarımı
-- Responsive tasarım desteği
-- Karanlık/Aydınlık tema desteği
-- Kullanıcı gelişimini destekleyen detaylı analiz araçları
-- Kişisel hedeflere ulaşmada rehberlik eden özellikler
-- Geliştiriciler için açık kaynak ve ticari kullanım desteği
+- The application was developed using the Electron framework
+- Data is stored locally in CSV format
+- Modern and user-friendly interface design
+- Responsive design support
+- Dark/Light theme support
+- Detailed analytics tools to support user progress
+- Features to guide users in achieving personal goals
+- Open source and commercial use support for developers
 
-Veri Depolama Yapısı
+Data Storage Structure
 -------------------
-Uygulama, kullanıcı verilerini yerel dosya sisteminde aşağıdaki yapıda saklar:
+The application stores user data in the local file system in the following structure:
 
-1. Ana Veri Klasörü: /profiles
-   - Kullanıcı profilleri CSV formatında saklanır
-   - Dosya adı formatı: kullanıcıadı_tarih.csv
-   - Örnek: kaan_çağlayan_2025-05-26T08-29-57-889Z.csv
+1. Main Data Folder: /profiles
+   - User profiles are stored in CSV format
+   - File name format: username_date.csv
+   - Example: kaan_caglayan_2025-05-26T08-29-57-889Z.csv
 
-2. Profil Fotoğrafları: /profiles/profiles_photos
-   - Kullanıcı profil fotoğrafları PNG formatında saklanır
-   - Dosya adı formatı: kullanıcıadı_tarih.png
-   - Örnek: kaan_çağlayan_2025-05-26T08-29-39-625Z.png
+2. Profile Photos: /profiles/profiles_photos
+   - User profile photos are stored in PNG format
+   - File name format: username_date.png
+   - Example: kaan_caglayan_2025-05-26T08-29-39-625Z.png
 
-3. Veri Formatları
-   - CSV Dosyaları:
-     * Kullanıcı bilgileri
-     * Vücut ölçüleri
-     * Hedefler
-     * Tarih damgası
+3. Data Formats
+   - CSV Files:
+     * User information
+     * Body measurements
+     * Goals
+     * Timestamp
    
-   - PNG Dosyaları:
-     * Profil fotoğrafları
-     * Base64 formatından dönüştürülmüş
-     * Otomatik boyutlandırma
+   - PNG Files:
+     * Profile photos
+     * Converted from Base64 format
+     * Automatic resizing
 
-4. Veri Güvenliği
-   - Yerel depolama
-   - Otomatik yedekleme
-   - Veri bütünlüğü kontrolü
-   - Güvenli dosya işlemleri 
+4. Data Security
+   - Local storage
+   - Automatic backup
+   - Data integrity check
+   - Secure file operations 
 
-Eklenebilir Özellikler ve Geliştirme Planları
+Add-on Features and Development Plans
 ----------------------------------------
-1. Çoklu Platform Desteği
-   - Windows, macOS ve Linux için native uygulamalar
-   - Web tabanlı versiyon
-   - Mobil uygulama (iOS/Android)
-   - Cross-platform senkronizasyon
+1. Multi-Platform Support
+   - Native applications for Windows, macOS, and Linux
+   - Web-based version
+   - Mobile application (iOS/Android)
+   - Cross-platform synchronization
 
-2. Çoklu Kullanıcı Sistemi
-   - Kullanıcı hesapları ve yetkilendirme
-   - Rol tabanlı erişim kontrolü
-   - Grup yönetimi ve paylaşım
-   - Sosyal özellikler ve etkileşim
+2. Multi-User System
+   - User accounts and authorization
+   - Role-based access control
+   - Group management and sharing
+   - Social features and interaction
 
-3. Ödeme Sistemleri
-   - Abonelik modeli
-   - Premium özellikler
-   - Ödeme geçmişi
-   - Fatura yönetimi
-   - Çoklu para birimi desteği
-   - Otomatik yenileme
+3. Payment Systems
+   - Subscription model
+   - Premium features
+   - Payment history
+   - Invoice management
+   - Multi-currency support
+   - Automatic renewal
 
-4. Gelişmiş Veri Takibi
-   - Gerçek zamanlı izleme
-   - Detaylı analitik raporlar
-   - Özelleştirilebilir dashboard
-   - Veri görselleştirme
-   - Trend analizi
-   - Tahminleme modelleri
+4. Advanced Data Tracking
+   - Real-time monitoring
+   - Detailed analytical reports
+   - Customizable dashboard
+   - Data visualization
+   - Trend analysis
+   - Forecasting models
 
-5. Veritabanı Seçenekleri
-   - SQLite (Yerel depolama)
-   - PostgreSQL (İlişkisel veritabanı)
-   - MongoDB (NoSQL çözümü)
-   - Redis (Önbellek ve oturum yönetimi)
-   - Firebase (Gerçek zamanlı veritabanı)
+5. Database Options
+   - SQLite (Local storage)
+   - PostgreSQL (Relational database)
+   - MongoDB (NoSQL solution)
+   - Redis (Caching and session management)
+   - Firebase (Real-time database)
 
-6. Lisanslama Sistemi
-   - Kullanıcı bazlı lisanslama
-   - Kurumsal lisanslar
-   - Özellik bazlı lisanslama
-   - Süre sınırlı lisanslar
-   - Lisans doğrulama ve yenileme
-   - Offline lisans aktivasyonu
+6. Licensing System
+   - User-based licensing
+   - Enterprise licenses
+   - Feature-based licensing
+   - Time-limited licenses
+   - License validation and renewal
+   - Offline license activation
 
-7. Güvenlik Geliştirmeleri
-   - İki faktörlü doğrulama
-   - End-to-end şifreleme
-   - Güvenli veri yedekleme
-   - GDPR uyumluluğu
-   - Veri gizliliği kontrolleri
+7. Security Enhancements
+   - Two-factor authentication
+   - End-to-end encryption
+   - Secure data backup
+   - GDPR compliance
+   - Data privacy controls
 
-8. Entegrasyonlar
-   - Fitness cihazları ile senkronizasyon
-   - Sağlık uygulamaları entegrasyonu
-   - Takvim sistemleri
-   - Bulut depolama servisleri
-   - Sosyal medya platformları
+8. Integrations
+   - Synchronization with fitness devices
+   - Health app integration
+   - Calendar systems
+   - Cloud storage services
+   - Social media platforms
 
-9. Performans İyileştirmeleri
-   - Önbellek optimizasyonu
+9. Performance Improvements
+   - Cache optimization
    - Lazy loading
-   - Kod splitting
-   - Asset optimizasyonu
-   - Yük dengeleme
+   - Code splitting
+   - Asset optimization
+   - Load balancing
 
-10. Kullanıcı Deneyimi
-    - Kişiselleştirilebilir arayüz
-    - Tema desteği
-    - Erişilebilirlik özellikleri
-    - Çoklu dil desteği
-    - Kısayol tuşları 
+10. User Experience
+    - Customizable interface
+    - Theme support
+    - Accessibility features
+    - Multi-language support
+    - Shortcut keys 
+
+Translated with DeepL.com (free version)
